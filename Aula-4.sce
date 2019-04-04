@@ -59,3 +59,101 @@ endfunction
 bissexto(2010);
 
 
+//==================================================
+//                 -----4------
+//==================================================
+disp('');
+disp('');
+disp('Ex. 4');
+function y=F(n)
+    if n==1 | n==2
+        y=1;
+    end
+    
+    if n>=3
+        F0=1;
+        F1=1;
+        for (i=1:n-2)
+            F2=F0+F1;
+            F0=F1;
+            F1=F2;
+        end
+        y=F2;
+    end
+endfunction
+
+
+
+//==================================================
+//                 -----5------
+//==================================================
+disp('');
+disp('');
+disp('Ex. 5');
+function soma=soma_Fib(n)
+soma=0;
+for i=1:n
+    soma=soma+F(i);
+end
+endfunction
+
+
+//==================================================
+//                 -----6------
+//==================================================
+disp('');
+disp('');
+disp('Ex. 6');
+function v=termos_Fib(s)
+    soma=0;
+    i=1;
+    while soma<=s
+        v(i)=F(i)
+        i=i+1;
+        soma=soma+F(i);
+    end
+    
+endfunction
+
+
+
+//==================================================
+//                 -----7------
+//==================================================
+disp('');
+disp('');
+disp('Ex. 7');
+function aprox=NumOuro
+    ouro=(1+sqrt(5))/2;
+    erro=1;
+    i=1;
+    while erro > 10^-10
+        erro=abs(ouro -(F(i+1)/F(i)));
+        aprox=F(i+1)/F(i);
+        plot(i,aprox,'r*');
+        i=i+1;
+    end
+endfunction
+
+
+//==================================================
+//                 -----11------
+//==================================================
+disp('');
+disp('');
+disp('Ex. 11-');
+function aprox=NumOuro
+    ouro=(1+sqrt(5))/2;
+    erro=1;
+    i=1;
+    while erro > 10^-10
+        erro=abs(ouro -(F(i+1)/F(i)));
+        aprox=F(i+1)/F(i);
+        plot(i,aprox,'r*');
+        i=i+1;
+    end
+endfunction
+
+
+
+
